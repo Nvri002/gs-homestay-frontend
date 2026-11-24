@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --bg: #f2f4f3;
+  --surface: #ffffff;
+  --line: #dde4e1;
+  --ink: #11201c;
+  --muted: #4b5f5a;
+  --field: #f2f4f3;
+  --primary: #0e7870;
+  --primary-hover: #0b625b;
+  --primary-soft: #d7f2ee;
+  --on-primary: #ffffff;
+  --warn-bg: #fde3cf;
+  --warn-fg: #b4540a;
+  --info-bg: #dbe7fe;
+  --info-fg: #1d3fae;
+  --ok-bg: #dcfce7;
+  --ok-fg: #166534;
+  --bad-bg: #fee2e2;
+  --bad-fg: #9b1c1c;
+  --teal-bg: #d7f2ee;
+  --teal-fg: #0b625b;
+  --neutral-bg: #e5e7eb;
+  --neutral-fg: #374151;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0d1513;
+  --surface: #16211e;
+  --line: #2a3a36;
+  --ink: #e8f0ed;
+  --muted: #9db3ad;
+  --field: #0f1a17;
+  --primary: #2bb3a6;
+  --primary-hover: #4cc7bb;
+  --primary-soft: #12332f;
+  --on-primary: #06201c;
+  --warn-bg: #4a2a10;
+  --warn-fg: #fdba74;
+  --info-bg: #1b2a52;
+  --info-fg: #a9c1ff;
+  --ok-bg: #12351f;
+  --ok-fg: #86efac;
+  --bad-bg: #4a1a1a;
+  --bad-fg: #fca5a5;
+  --teal-bg: #12332f;
+  --teal-fg: #7fe0d5;
+  --neutral-bg: #2a3330;
+  --neutral-fg: #c7d2cf;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-field: var(--field);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+  --color-warn-bg: var(--warn-bg);
+  --color-warn-fg: var(--warn-fg);
+  --color-info-bg: var(--info-bg);
+  --color-info-fg: var(--info-fg);
+  --color-ok-bg: var(--ok-bg);
+  --color-ok-fg: var(--ok-fg);
+  --color-bad-bg: var(--bad-bg);
+  --color-bad-fg: var(--bad-fg);
+  --color-teal-bg: var(--teal-bg);
+  --color-teal-fg: var(--teal-fg);
+  --color-neutral-bg: var(--neutral-bg);
+  --color-neutral-fg: var(--neutral-fg);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Input tanggal/bulan di iOS & Safari sering melebar melewati kolomnya. */
+input[type="date"],
+input[type="month"] {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Pengaman terakhir agar konten yang kebetulan melebar tidak membuat halaman bergeser ke samping
+   (tabel dan kalender tetap bisa digulir di dalam kontainernya sendiri). */
+body {
+  overflow-x: clip;
+}
